@@ -43,10 +43,7 @@ class _NoteEditor_PageState extends State<NoteEditor_Page> {
               ),
             ),
 
-            // Text(
-            //   date,
-            //   style: AppStyle.dateTitle,
-            // ),
+            
             const SizedBox(
               height: 5,
             ),
