@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
         ),
         centerTitle: true,
         backgroundColor: Colors.black,
-        // backgroundColor: AppStyle.mainColor,
+      
       ),
       body: Padding(
         padding: const EdgeInsets.all(18),
@@ -144,8 +144,8 @@ class _HomePageState extends State<HomePage> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              // builder: (context) => NoteEditorScreen(),
-              builder: (context) => const NoteEditor_Page(),
+              
+        builder: (context) => const NoteEditor_Page(),
             ),
           );
         },
