@@ -12,13 +12,7 @@ A new Flutter project.
 <img src="https://user-images.githubusercontent.com/111499824/202922678-22af501a-b69f-4414-b27b-f10b67b3097a.jpg" width="250" height="500" />
 
 ### Gif
-https://user-images.githubusercontent.com/111499824/202328166-91a88d70-8c29-4adf-a550-4855135be5ee.mp4
-
-
-
-
-
-
+https://user-images.githubusercontent.com/111499824/202923453-a6e8b081-01dc-4639-9561-e391691f9c85.mp4
 
 
 
