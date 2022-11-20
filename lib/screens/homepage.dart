@@ -21,15 +21,14 @@ class _HomePageState extends State<HomePage> {
   String title = "";
   String content = "";
 
-  // int color_id = Random().nextInt(AppStyle().cardsColor.length);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     
+   
       backgroundColor: Colors.black,
       appBar: AppBar(
-       
+     
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -49,7 +48,7 @@ class _HomePageState extends State<HomePage> {
         ),
         centerTitle: true,
         backgroundColor: Colors.black,
-      
+        // backgroundColor: AppStyle.mainColor,
       ),
       body: Padding(
         padding: const EdgeInsets.all(18),
@@ -88,14 +87,15 @@ class _HomePageState extends State<HomePage> {
                               elevation: 3,
                               color: AppStyle.cardsColor[list[i]['color_id']],
                               child: ListTile(
-                                //leading: Text("${i + 1}"),
+                                
                                 title: Text(
                                   "${list[i]['note_title']}",
                                   style: AppStyle.mainTitle,
                                 ),
                                 subtitle: Text("${list[i]['note_content']}"),
 
-                               
+                                
+
                                 trailing: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   mainAxisAlignment: MainAxisAlignment.end,
@@ -144,8 +144,8 @@ class _HomePageState extends State<HomePage> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              
-        builder: (context) => const NoteEditor_Page(),
+           
+              builder: (context) => const NoteEditor_Page(),
             ),
           );
         },
@@ -159,13 +159,23 @@ class _HomePageState extends State<HomePage> {
       context: context,
       builder: (context) {
         return AlertDialog(
+          backgroundColor: Color(0xfffcca3f),
           content: Form(
             key: formKey,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 const Center(
-                  child: Text("Update"),
+                  child: Text(
+                    "Update Data",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 30,
                 ),
                 TextFormField(
                   controller: titleController,
@@ -177,8 +187,12 @@ class _HomePageState extends State<HomePage> {
                   },
                   decoration: const InputDecoration(
                     hintText: "Title",
-                    label: Text("Enter Your title"),
+                    border: OutlineInputBorder(),
+                    label: Text("title"),
                   ),
+                ),
+                SizedBox(
+                  height: 15,
                 ),
                 TextFormField(
                   controller: contextController,
@@ -190,13 +204,20 @@ class _HomePageState extends State<HomePage> {
                   },
                   decoration: const InputDecoration(
                     hintText: "Context",
-                    label: Text("Enter Your context"),
+                    border: OutlineInputBorder(),
+                    label: Text("content"),
                   ),
+                ),
+                SizedBox(
+                  height: 25,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.black,
+                      ),
                       onPressed: () async {
                         Navigator.of(context).pop();
                         if (formKey.currentState!.validate()) {
@@ -234,7 +255,10 @@ class _HomePageState extends State<HomePage> {
                         });
                         Navigator.of(context).pop();
                       },
-                      child: const Text("Cancel"),
+                      child: const Text(
+                        "Cancel",
+                        style: TextStyle(color: Colors.black),
+                      ),
                     ),
                   ],
                 ),
