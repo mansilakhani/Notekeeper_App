@@ -22,49 +22,48 @@ class _NoteEditor_PageState extends State<NoteEditor_Page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.black,
+    
       backgroundColor: AppStyle.cardsColor[color_id],
-      // appBar: AppBar(
-      //   backgroundColor: AppStyle.cardsColor[color_id],
-      //   iconTheme: IconThemeData(color: Colors.black),
-      //   // title: Text(
-      //   //   "Add a new Note",
-      //   //   style: TextStyle(
-      //   //       color: Colors.black, fontSize: 24, fontWeight: FontWeight.w900),
-      //   // ),
-      //   centerTitle: true,
-      // ),
+     
       body: Padding(
-        padding: const EdgeInsets.only(top: 60, left: 20),
+        padding: const EdgeInsets.only(top: 50, left: 5),
         child: Column(
           children: [
-            TextField(
-              controller: titleController,
-              decoration: const InputDecoration(
-                border: InputBorder.none,
-                hintText: 'Note Title',
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: titleController,
+                decoration: const InputDecoration(
+                  fillColor: Colors.white,
+                  filled: true,
+                  border: InputBorder.none,
+                  hintText: 'Note Title',
+                ),
+                style: AppStyle.mainTitle,
               ),
-              style: AppStyle.mainTitle,
             ),
+
+            // Text(
+            //   date,
+            //   style: AppStyle.dateTitle,
+            // ),
             const SizedBox(
-              height: 8,
+              height: 5,
             ),
-            Text(
-              date,
-              style: AppStyle.dateTitle,
-            ),
-            const SizedBox(
-              height: 28,
-            ),
-            TextField(
-              controller: contentController,
-              keyboardType: TextInputType.multiline,
-              maxLines: null,
-              decoration: const InputDecoration(
-                border: InputBorder.none,
-                hintText: 'Note Context',
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: contentController,
+                keyboardType: TextInputType.multiline,
+                maxLines: null,
+                decoration: const InputDecoration(
+                  border: InputBorder.none,
+                  fillColor: Colors.white,
+                  filled: true,
+                  hintText: 'Note Content',
+                ),
+                style: AppStyle.mainContent,
               ),
-              style: AppStyle.mainContent,
             ),
           ],
         ),
@@ -76,7 +75,7 @@ class _NoteEditor_PageState extends State<NoteEditor_Page> {
           FirebaseFirestore.instance.collection("Notes").add({
             "note_title": titleController.text,
             "note_content": contentController.text,
-            "creation_date": date,
+            //"creation_date": date,
             "color_id": color_id,
           }).then((value) {
             print(value.id);
